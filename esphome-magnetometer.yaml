@@ -14,6 +14,7 @@ substitutions:
 
   i2c_scl: GPIO5  # D1
   i2c_sda: GPIO4  # D2
+  ic2_address: 0x0D
 
   # Set these only if you have connected two QMC5883L to one device, see esphome-two-meters.yaml
   prefix_name: ''
@@ -293,7 +294,7 @@ sensor:
   - platform: qmc5883l
     id: ${prefix_id}qmc5883l_id
     i2c_id: ${prefix_id}i2c_bus
-    address: 0x2C #0x0D
+    address: ${ic2_address} #0x2C #0x0D
     field_strength_x:
       id: ${prefix_id}qmc5883l_axis_x
       name: ${prefix_name}Magnetic Field Strength X
